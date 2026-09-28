@@ -1,0 +1,116 @@
+{
+  "version": "v4.2-tracked",
+  "default": "watch",
+  "rules": [
+    {
+      "id": "discord-permission-tracked",
+      "when": {
+        "causes_any": [
+          "missing_permissions",
+          "missing_access"
+        ]
+      },
+      "label": "tracked"
+    },
+    {
+      "id": "continuation",
+      "when": {
+        "kind": [
+          "continuation"
+        ]
+      },
+      "label": "ignore"
+    },
+    {
+      "id": "observation",
+      "when": {
+        "kind": [
+          "observation"
+        ]
+      },
+      "label": "ignore"
+    },
+    {
+      "id": "typing-rate-limit",
+      "when": {
+        "event": [
+          "platform.operation_rate_limited"
+        ]
+      },
+      "label": "ignore"
+    },
+    {
+      "id": "tool-check-fn",
+      "when": {
+        "event": [
+          "tool.check_fn_false"
+        ]
+      },
+      "label": "ignore"
+    },
+    {
+      "id": "severe-causes",
+      "when": {
+        "causes_any": [
+          "usage_quota_exhausted",
+          "credit_balance_exhausted",
+          "allocation_quota_exhausted",
+          "database_corrupt",
+          "memory_exhausted",
+          "oom_killed_process",
+          "permission_denied",
+          "missing_access",
+          "auth_invalid",
+          "oauth_refresh_invalid"
+        ]
+      },
+      "label": "needs-attention"
+    },
+    {
+      "id": "oom-events",
+      "when": {
+        "event": [
+          "system.oom_invoked",
+          "service.oom_killed",
+          "process.oom_killed"
+        ]
+      },
+      "label": "needs-attention"
+    },
+    {
+      "id": "severe-platform-runtime",
+      "when": {
+        "event": [
+          "platform.adapter_failed",
+          "runtime.event_loop_stalled"
+        ]
+      },
+      "label": "needs-attention"
+    },
+    {
+      "id": "critical-log-level",
+      "when": {
+        "log_level": [
+          "CRITICAL",
+          "ALERT",
+          "EMERGENCY"
+        ]
+      },
+      "label": "needs-attention"
+    },
+    {
+      "id": "error-stream-or-network",
+      "when": {
+        "log_level": [
+          "ERROR"
+        ],
+        "cause": [
+          "stream_stalled",
+          "dns_resolution_failed",
+          "connection_refused"
+        ]
+      },
+      "label": "needs-attention"
+    }
+  ]
+}

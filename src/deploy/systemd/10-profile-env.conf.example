@@ -1,0 +1,6 @@
+# Example only: replace /ABSOLUTE/HOME and astra-health for the selected instance.
+# Install only after configuration and lifecycle validation; this file does not enable a service.
+[Service]
+EnvironmentFile=%h/.hermes/.env-global
+EnvironmentFile=%h/.hermes/profiles/astra-health/.env
+Environment=HERMES_CRON_TIMEOUT=180

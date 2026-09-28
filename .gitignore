@@ -1,0 +1,165 @@
+# Archive and backup directories at any depth, regardless of capitalization
+**/[Aa][Rr][Cc][Hh][Ii][Vv][Ee]/
+**/[Aa][Rr][Cc][Hh][Ii][Vv][Ee][Ss]/
+**/[Bb][Aa][Cc][Kk][Uu][Pp]/
+**/[Bb][Aa][Cc][Kk][Uu][Pp][Ss]/
+
+# Private history and operator state (existing tracked files still need release review)
+/internal_files/
+/analysis/
+/historical/
+/from_pi/
+/datasets/
+/jobs/
+/logs/
+/reports/
+/results/
+/data/
+docs/optional-documentation/
+/docs/optional-documentation/
+/models.yaml
+**/models.yaml
+hermes.md
+CHANGELOG.md
+AGENTS.md
+
+# Credentials and local configuration
+.env
+.env.*
+*.env
+!*.env.example
+*.token
+**/auth.json
+**/token.json
+**/*credentials*.json
+**/*secret*.json
+**/*key*.json
+API KEYS and secrets/
+*.ppk
+*_ed25519
+*.pem
+
+# Runtime and generated Python artifacts
+__pycache__/
+*.py[cod]
+*.sqlite
+*.sqlite-*
+*.db
+*.db-wal
+*.db-shm
+*.state.json
+*.log
+*.bak
+*.bak-*
+*.tmp
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.pytest_tmp*/
+tmp/
+temp/
+.cache/
+
+# Local tools, worktrees and editor state
+.git-worktrees/
+.worktrees/
+worktree/
+.claude/
+.codex/
+.agents/
+.omx/
+.gsd/
+.gsd-id
+.serena/
+.mulch/
+.mcp.json
+.bg-shell/
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+node_modules/
+.next/
+
+# Packaged/generated local archives
+*.zip
+*.rar
+*.tar
+*.gz
+
+# Additional Dell filename, build and local-tool exclusions
+.env*
+.seeds
+.serena
+.claude
+.mulch
+/graphify-out/cache
+*bak*
+*copia*
+*draft*
+*$py.class
+*.so
+.Python
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+.installed.cfg
+*.egg
+MANIFEST
+env/
+ENV/
+.env.local
+.env-fromtemp
+*_ed25519.pub
+logs-backup/
+Media/
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.pdf
+*.opus
+*.waw
+the-/
+pytestrootsprint4_merge/
+.tmp_message_tracker/
+.playwright-mcp/
+.gsd
+/A2A/CODEX.md
+
+# Keep sanitized environment examples available after broad .env exclusions
+!.env.example
+!*.env.example
+
+# Separate owner-local A2A component
+/A2A/
+
+# Proposed/local material withheld from the initial public baseline
+/src/skills/
+/docs/prompts/
+# Contributor model preferences are integrated into AGENTS.md
+/MODELS.md
+
+# CLI/instruction tests withheld with the delivery skill (keep locally)
+/tests/test_astra_delivery_cli.py
+
+# Standalone legacy alarm path: no retained caller, external usage unverified
+/src/agent/astra_alarm.py
+/src/agent/astra/window.py
+
+# Reference schemas are retained locally pending validation
+/src/schemas/

@@ -1,0 +1,16 @@
+# Example only: replace /ABSOLUTE/HOME and astra-health for the selected instance.
+# Install only after configuration and lifecycle validation; this file does not enable a service.
+[Unit]
+Description=ASTRA evidence sync and native-job dispatch (no model calls)
+After=network-online.target
+[Service]
+Type=oneshot
+WorkingDirectory=%h/logs-watch
+Environment=HERMES_HOME=/ABSOLUTE/HOME/.hermes/profiles/astra-health
+EnvironmentFile=%h/.hermes/.env-global
+EnvironmentFile=%h/.hermes/profiles/astra-health/.env
+ExecStart=%h/.hermes/hermes-agent/venv/bin/python %h/.hermes/scripts/astra_dispatch.py
+TimeoutStartSec=120
+TimeoutStopSec=10
+KillMode=control-group
+Nice=10

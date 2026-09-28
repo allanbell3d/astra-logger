@@ -1,0 +1,5 @@
+# Source tree
+
+Keep runtime Python under agent/, deployment adapters under deploy/, worker contracts under skills/, and configuration/examples/contracts in their named folders. Root documents define target behavior; source presence does not prove acceptance. Preserve existing working components and interfaces. Do not reintroduce whole private deployment trees, dated commissioning scripts or backups into active source. Proposed worker skills are withheld from the initial tracked baseline while they are prepared. Their absence is not a reason to erase working optional integration boundaries or to assume an installed adapter is present. When skills return, preserve useful host-specific procedures and verify their contracts before including dependent tests.
+
+Use repository fixtures for offline checks. Importing a deployment entry point or running a prepare script may mutate leases or start work; inspect it before execution. Never run model sweeps, live dispatch, or services as a cleanup check. Windows can run part of the suite; POSIX integration needs Linux verification.

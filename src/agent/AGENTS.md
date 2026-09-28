@@ -1,0 +1,5 @@
+# Installed Python entry points
+
+The astra/ directory is the importable implementation; astra_pipeline.py, astra_review.py and astra_dispatch.py are installed entry points. The standalone legacy astra_alarm.py/window.py utility is withheld from this initial tracked baseline: no caller was found in the retained source/deployment definitions, and external use is unverified. Preserve any installed copy; excluding the local proposal does not authorize a host cleanup or interface removal. Preserve deployed filenames and caller interfaces for the maintained entry points.
+
+The capture launcher loads ~/.hermes/scripts/astra-severity-policy.json, takes a POSIX lock, and may start dispatch. Its repository policy source is ../config/severity_policy.json. The host routing example is ../config/astra-host.example.json. Do not run these entry points against an operator home for validation; use isolated fixtures and mocks. Do not convert an existing urgent detector into permission for a triage bypass.

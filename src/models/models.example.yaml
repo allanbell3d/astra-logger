@@ -1,0 +1,155 @@
+# ASTRA phase playbook example — placeholders only, not deployable as-is.
+# Supply instance values and validate them before installation.
+# Bare default:/triage:/rca: lines delimit phases, not nested YAML mappings.
+# Each following column-zero key is a config block. Blocks present replace
+# whole config blocks as raw text; absent top-level blocks remain unchanged.
+# Removing a nested key from a replaced block removes that nested setting.
+# Restore returns the exact pre-apply snapshot, NOT the default phase.
+# Waking prepare scripts arm the phase before effective config load;
+# RCA dispatch also arms on rearm. Job pins may override the phase primary.
+# provider is a provider identifier; model.default is a model identifier.
+# Credential availability, provider model names, retry budgets and unknown
+# settings must be checked against Hermes; parsing alone cannot validate them.
+# Numeric settings below illustrate shape, not recommended runtime budgets.
+# Delivery plugin availability is distinct from the agent Discord tool.
+# Memory/tool restrictions must be explicitly scoped if required by a phase.
+# No live calls or deployment are implied by this example.
+
+default:
+model:
+  provider: PROVIDER
+  default: MODEL_ID
+  reasoning_effort: medium
+fallback_providers:
+  - provider: PROVIDER
+    model: MODEL
+  - provider: PROVIDER
+    model: MODEL
+    reasoning_effort: high
+  - provider: PROVIDER
+    model: MODEL
+max_concurrent_sessions: 10
+max_live_sessions: 6
+delegation:
+  model: MODEL
+  provider: PROVIDER
+  reasoning_effort: medium
+  fallback_providers:
+    - provider: PROVIDER
+      model: MODEL
+      reasoning_effort: high
+    - provider: PROVIDER
+      model: MODEL
+    - provider: PROVIDER
+      model: MODEL
+  max_concurrent_children: 3     # concurrent subagent sessions
+  orchestrator_enabled: false
+  subagent_auto_approve: true
+  surface_child_process_notifications: true
+agent:
+  max_turns: 120                 # max model turns per session
+  api_max_retries: 10            # retries on API errors before fallback/abort
+auxiliary:
+  transient_retries: 1
+  free_only: false
+  openrouter_model: MODEL
+  stream_only_base_urls: []
+  vision:
+    provider: PROVIDER
+    model: MODEL
+    fallback_chain: []
+  compression:
+    provider: PROVIDER
+    model: MODEL
+    fallback_chain: []
+  skills_hub:
+    provider: PROVIDER
+    model: MODEL
+    base_url: ''
+    api_key: ''
+    timeout: 30
+    reasoning_effort: ''
+triage:
+model:
+  provider: PROVIDER
+  default: MODEL_ID
+  reasoning_effort: medium
+fallback_providers:
+  - provider: PROVIDER
+    model: MODEL
+  - provider: PROVIDER
+    model: MODEL
+  - provider: PROVIDER
+    model: MODEL
+  - provider: PROVIDER
+    model: MODEL
+  - provider: PROVIDER
+    model: MODEL
+delegation:
+  model: MODEL
+  provider: PROVIDER
+  reasoning_effort: medium
+  fallback_providers:
+    - provider: PROVIDER
+      model: MODEL
+      reasoning_effort: high
+  max_concurrent_children: 3
+  orchestrator_enabled: false
+  subagent_auto_approve: true
+  surface_child_process_notifications: true
+agent:
+  max_turns: 120
+  api_max_retries: 10
+auxiliary:
+  transient_retries: 1
+  free_only: false
+  openrouter_model: MODEL
+  stream_only_base_urls: []
+  vision:
+    provider: PROVIDER
+    model: MODEL
+    fallback_chain: []
+  compression:
+    provider: PROVIDER
+    model: MODEL
+    fallback_chain: []
+rca:
+model:
+  provider: PROVIDER
+  default: MODEL_ID
+  reasoning_effort: medium
+fallback_providers:
+  - provider: PROVIDER
+    model: MODEL
+    reasoning_effort: high
+  - provider: PROVIDER
+    model: MODEL
+    reasoning_effort: medium
+delegation:
+  model: MODEL
+  provider: PROVIDER
+  reasoning_effort: medium
+  fallback_providers:
+    - provider: PROVIDER
+      model: MODEL
+      reasoning_effort: high
+  max_concurrent_children: 3
+  orchestrator_enabled: false
+  subagent_auto_approve: true
+  surface_child_process_notifications: true
+agent:
+  max_turns: 120
+  api_max_retries: 10
+auxiliary:
+  transient_retries: 1
+  free_only: false
+  openrouter_model: MODEL
+  stream_only_base_urls: []
+  vision:
+    provider: PROVIDER
+    model: MODEL
+    fallback_chain: []
+  compression:
+    provider: PROVIDER
+    model: MODEL
+    fallback_chain: []
